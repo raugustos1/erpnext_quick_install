@@ -486,8 +486,9 @@ case "$continue_prod" in
             sudo apt install snapd -y && \
             sudo snap install core && \
             sudo snap refresh core && \
-            sudo snap install certbot-dns-route53 && \
             sudo snap install --classic certbot && \
+            sudo snap set certbot trust-plugin-with-root=ok && \
+            sudo snap install certbot-dns-route53 && \
             sudo ln -s /snap/bin/certbot /usr/bin/certbot
             
             # Obtain and Install the certificate
